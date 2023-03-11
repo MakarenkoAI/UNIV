@@ -1,0 +1,76 @@
+first_lr=[*
+	sc_node_struct->section_subject_domain_of_cooking;;
+
+	section_subject_domain_of_cooking<=nrel_section_decomposition:{
+		section_subject_domain_of_asian_cooking(*<-sc_node_struct;;*);
+		section_subject_domain_of_african_cooking(*<-sc_node_struct;;*);	
+		section_subject_domain_of_european_cooking(*<-sc_node_struct;;*);
+		section_subject_domain_of_slavic_cooking(*<-sc_node_struct;;*);
+		section_subject_domain_of_eastern_cooking(*<-sc_node_struct;;*);;
+	};;
+
+	section_subject_domain_of_cooking->rrel_key_sc_element:
+		subject_domain_of_cooking(*<-sc_node_struct;;*);
+
+		concept_equipment(*<-sc_node_class;;*);
+		concept_chef(*<-sc_node_class;;*);
+		concept_ingredient(*<-sc_node_class;;*);
+		concept_recipe(*<-sc_node_class;;*);
+		concept_caloricity(*<-sc_node_class;;*);
+
+   	 	nrel_baking(*<-sc_node_norole_relation;;*);
+   		nrel_preparation(*<-sc_node_norole_relation;;*);
+		nrel_mixing(*<-sc_node_norole_relation;;*);
+		nrel_cutting(*<-sc_node_norole_relation;;*);
+		nrel_boiling(*<-sc_node_norole_relation;;*);;
+
+    section_subject_domain_of_cooking => nrel_main_idtf:
+        [Раздел.Предметная область кулинарии]
+        (* <- lang_ru;; *);;
+
+	section_subject_domain_of_cooking => nrel_main_idtf:
+		[Section.Subject domain of cooking]
+        (* <- lang_en;; *);;
+    
+	concept_referee<-rrel_not_maximum_studied_object_class:subject_domain_of_cooking;;
+    
+	section_subject_domain_of_cooking<-non_atomic_section;;
+
+	subject_domain_of_cooking => nrel_main_idtf:
+        [Предметная область кулинарии]
+        (* <- lang_ru;; *);;
+    
+    subject_domain_of_cooking => nrel_main_idtf:
+        [Subject domain of cooking]
+        (* <- lang_en;; *);;
+
+    subject_domain_of_cooking=>nrel_private_subject_domain:
+		subject_domain_of_slavic_cooking(*<-sc_node_struct;;*);
+        subject_domain_of_african_cooking(*<-sc_node_struct;;*);
+        subject_domain_of_european_cooking(*<-sc_node_struct;;*);
+	    subject_domain_of_asian_cooking(*<-sc_node_struct;;*);
+		subject_domain_of_eastern_cooking(*<-sc_node_struct;;*);;
+
+	subject_domain_of_cooking<=nrel_private_subject_domain:subject_domain_of_human_activity(*<-sc_node_struct;;*);;
+
+    subject_domain_of_cooking->rrel_maximum_studied_object_class:concept_chef;;
+    
+    subject_domain_of_cooking->rrel_explored_relation:
+       	nrel_baking;
+   		nrel_preparation;
+		nrel_mixing;
+		nrel_cutting;
+		nrel_boiling;;
+    
+    subject_domain_of_cooking<-subject_domain;;
+
+*];;		
+
+
+
+
+
+
+
+
+
