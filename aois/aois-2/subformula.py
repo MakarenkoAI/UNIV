@@ -1,31 +1,31 @@
- # Алвафит для вводимых формул 
+ # РђР»РІР°С„РёС‚ РґР»СЏ РІРІРѕРґРёРјС‹С… С„РѕСЂРјСѓР» 
 abc:list = ['A', 'B', 'C', 'D','E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
 			'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
 
-# Символы для логических операций 
+# РЎРёРјРІРѕР»С‹ РґР»СЏ Р»РѕРіРёС‡РµСЃРєРёС… РѕРїРµСЂР°С†РёР№ 
 connective:list = [ "&", "v", ">", "(", ")", "~", "!"]
 
-# Список для псевдоэлементарных подформул и формул
+# РЎРїРёСЃРѕРє РґР»СЏ РїСЃРµРІРґРѕСЌР»РµРјРµРЅС‚Р°СЂРЅС‹С… РїРѕРґС„РѕСЂРјСѓР» Рё С„РѕСЂРјСѓР»
 data:list = []
 
-# Список для всех интерпретаций атомарных формул 
+# РЎРїРёСЃРѕРє РґР»СЏ РІСЃРµС… РёРЅС‚РµСЂРїСЂРµС‚Р°С†РёР№ Р°С‚РѕРјР°СЂРЅС‹С… С„РѕСЂРјСѓР» 
 interpretation:list = []
 
-# Список уникальных атомарных формул #
+# РЎРїРёСЃРѕРє СѓРЅРёРєР°Р»СЊРЅС‹С… Р°С‚РѕРјР°СЂРЅС‹С… С„РѕСЂРјСѓР» #
 atoms:list = []
 
-# Список для промежуточных и итоговой таблиц истинности подформул #
+# РЎРїРёСЃРѕРє РґР»СЏ РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅС‹С… Рё РёС‚РѕРіРѕРІРѕР№ С‚Р°Р±Р»РёС† РёСЃС‚РёРЅРЅРѕСЃС‚Рё РїРѕРґС„РѕСЂРјСѓР» #
 answer:list = []
 
 def equality_abc(el:str):
-	# Проверяет соответствие элемента алфавиту #
+	# РџСЂРѕРІРµСЂСЏРµС‚ СЃРѕРѕС‚РІРµС‚СЃС‚РІРёРµ СЌР»РµРјРµРЅС‚Р° Р°Р»С„Р°РІРёС‚Сѓ #
 	for atom in abc:
 		if el == atom: return True
 	return False
 
 def get_list_of_atoms(formula:str):
-	# Возращает список атомарных уникальных подформул формулы #
+	# Р’РѕР·СЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє Р°С‚РѕРјР°СЂРЅС‹С… СѓРЅРёРєР°Р»СЊРЅС‹С… РїРѕРґС„РѕСЂРјСѓР» С„РѕСЂРјСѓР»С‹ #
 	global atoms
 	for el in formula:
 		if equality_abc(el): atoms.append(el)
@@ -34,7 +34,7 @@ def get_list_of_atoms(formula:str):
 	return atoms
 
 def create_interpretation():
-	# Заполнение списка интерпретаций атомарных подформул #
+	# Р—Р°РїРѕР»РЅРµРЅРёРµ СЃРїРёСЃРєР° РёРЅС‚РµСЂРїСЂРµС‚Р°С†РёР№ Р°С‚РѕРјР°СЂРЅС‹С… РїРѕРґС„РѕСЂРјСѓР» #
 	global interpretation
 	global atoms
 
@@ -46,7 +46,7 @@ def create_interpretation():
 	return interpretation
 
 def fix_interpretation(size:int):
-	# Корректирование интерпретации #
+	# РљРѕСЂСЂРµРєС‚РёСЂРѕРІР°РЅРёРµ РёРЅС‚РµСЂРїСЂРµС‚Р°С†РёРё #
 	global interpretation
 	for index, el in enumerate(interpretation):
 		if not len(el) == size:
@@ -56,7 +56,7 @@ def fix_interpretation(size:int):
 	return interpretation
 
 def transform_formula(formula:str):
-	# Разбиение формулы на (псевдо)элементарные подформулы #
+	# Р Р°Р·Р±РёРµРЅРёРµ С„РѕСЂРјСѓР»С‹ РЅР° (РїСЃРµРІРґРѕ)СЌР»РµРјРµРЅС‚Р°СЂРЅС‹Рµ РїРѕРґС„РѕСЂРјСѓР»С‹ #
 	iteration_number:int = get_number_of_brackets(formula) + 1
 	while iteration_number:
 		for index, el in enumerate(formula):
@@ -71,7 +71,7 @@ def transform_formula(formula:str):
 		iteration_number -=1
 
 def find_close_bracket(formula:str, index_open_bracket:int):
-	# Находит индекс первой закрывающейся скобки после открывающейся #
+	# РќР°С…РѕРґРёС‚ РёРЅРґРµРєСЃ РїРµСЂРІРѕР№ Р·Р°РєСЂС‹РІР°СЋС‰РµР№СЃСЏ СЃРєРѕР±РєРё РїРѕСЃР»Рµ РѕС‚РєСЂС‹РІР°СЋС‰РµР№СЃСЏ #
 	for index in range(index_open_bracket+1, len(formula)):
 		if formula[index] == '(': return 0
 		if formula[index] == ')': return index
@@ -84,46 +84,46 @@ def get_number_of_brackets(formula:str):
 	return result
 
 def solution():
-	# Заполнение таблиц истинности для каждой подформулы #
+	# Р—Р°РїРѕР»РЅРµРЅРёРµ С‚Р°Р±Р»РёС† РёСЃС‚РёРЅРЅРѕСЃС‚Рё РґР»СЏ РєР°Р¶РґРѕР№ РїРѕРґС„РѕСЂРјСѓР»С‹ #
 	global data
 	global answer
 	for el in data:
 		first_list:list = []
 		second_list:list = []
 		temp_answer:list = []
-		if el[1] == '!':  # Для унарной операции
-			if equality_abc(el[2]): # Если элементарная формула
+		if el[1] == '!':  # Р”Р»СЏ СѓРЅР°СЂРЅРѕР№ РѕРїРµСЂР°С†РёРё
+			if equality_abc(el[2]): # Р•СЃР»Рё СЌР»РµРјРµРЅС‚Р°СЂРЅР°СЏ С„РѕСЂРјСѓР»Р°
 				index_atom = atoms.index(el[2])
 				first_list = get_list_of_atom_value(index_atom)
-			elif el[2].isdigit(): # Если псевдоэлементарная формула
+			elif el[2].isdigit(): # Р•СЃР»Рё РїСЃРµРІРґРѕСЌР»РµРјРµРЅС‚Р°СЂРЅР°СЏ С„РѕСЂРјСѓР»Р°
 				index_atom = int(el[2])
 				first_list = answer[index_atom - 1]
 
 			for el_ in range(len(first_list)):
-				temp_answer.append(solve(int(first_list[el_]), '!')) # сохраняем таблицу истинности для подформулы
+				temp_answer.append(solve(int(first_list[el_]), '!')) # СЃРѕС…СЂР°РЅСЏРµРј С‚Р°Р±Р»РёС†Сѓ РёСЃС‚РёРЅРЅРѕСЃС‚Рё РґР»СЏ РїРѕРґС„РѕСЂРјСѓР»С‹
 			answer.append(temp_answer)
-		else:# Для бинарных операций
-			if equality_abc(el[1]):#Если элементарная формула
+		else:# Р”Р»СЏ Р±РёРЅР°СЂРЅС‹С… РѕРїРµСЂР°С†РёР№
+			if equality_abc(el[1]):#Р•СЃР»Рё СЌР»РµРјРµРЅС‚Р°СЂРЅР°СЏ С„РѕСЂРјСѓР»Р°
 				index_atom = atoms.index(el[1])
 				first_list = get_list_of_atom_value(index_atom)
-			elif el[1].isdigit():# Если псевдоэлементарная формула
+			elif el[1].isdigit():# Р•СЃР»Рё РїСЃРµРІРґРѕСЌР»РµРјРµРЅС‚Р°СЂРЅР°СЏ С„РѕСЂРјСѓР»Р°
 				index_atom = int(el[1])
 				first_list = answer[index_atom - 1]
 					
-			if equality_abc(el[3]):#Если элементарная формула
+			if equality_abc(el[3]):#Р•СЃР»Рё СЌР»РµРјРµРЅС‚Р°СЂРЅР°СЏ С„РѕСЂРјСѓР»Р°
 				index_atom = atoms.index(el[3])
 				second_list = get_list_of_atom_value(index_atom)
-			elif el[3].isdigit():#Если псевдоэлементарная формула
+			elif el[3].isdigit():#Р•СЃР»Рё РїСЃРµРІРґРѕСЌР»РµРјРµРЅС‚Р°СЂРЅР°СЏ С„РѕСЂРјСѓР»Р°
 				index_atom = int(el[3]) 
 				second_list = answer[index_atom - 1]
 
 			for el_ in range(len(first_list)):
-				temp_answer.append(solve(int(first_list[el_]), el[2], int(second_list[el_])))# сохраняем таблицу истинности для подформулы
+				temp_answer.append(solve(int(first_list[el_]), el[2], int(second_list[el_])))# СЃРѕС…СЂР°РЅСЏРµРј С‚Р°Р±Р»РёС†Сѓ РёСЃС‚РёРЅРЅРѕСЃС‚Рё РґР»СЏ РїРѕРґС„РѕСЂРјСѓР»С‹
 			answer.append(temp_answer)
 			
 
 def solve(first:int, connection:str, second:int = 0):
-	# Возращает решение операции #
+	# Р’РѕР·СЂР°С‰Р°РµС‚ СЂРµС€РµРЅРёРµ РѕРїРµСЂР°С†РёРё #
 	if connection == '~': return first == second
 	if connection == '>': 
 		if first == 1 and second == 0:
@@ -135,7 +135,7 @@ def solve(first:int, connection:str, second:int = 0):
 	if connection == '!': return not first
 
 def get_list_of_atom_value(index:int):
-	# Возращает интерпретацию определенной атомарной формулы #
+	# Р’РѕР·СЂР°С‰Р°РµС‚ РёРЅС‚РµСЂРїСЂРµС‚Р°С†РёСЋ РѕРїСЂРµРґРµР»РµРЅРЅРѕР№ Р°С‚РѕРјР°СЂРЅРѕР№ С„РѕСЂРјСѓР»С‹ #
 	global interpretation
 	result:list = []
 	for el in range(1, len(interpretation)):
