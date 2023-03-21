@@ -123,7 +123,7 @@ def solution():
 			
 
 def solve(first:int, connection:str, second:int = 0):
-	# Возращает решение операции #
+	# Возвращает решение операции #
 	if connection == '~': return first == second
 	if connection == '>': 
 		if first == 1 and second == 0:
@@ -135,7 +135,7 @@ def solve(first:int, connection:str, second:int = 0):
 	if connection == '!': return not first
 
 def get_list_of_atom_value(index:int):
-	# Возращает интерпретацию определенной атомарной формулы #
+	# Возвращает интерпретацию определенной атомарной формулы #
 	global interpretation
 	result:list = []
 	for el in range(1, len(interpretation)):
