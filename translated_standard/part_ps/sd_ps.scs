@@ -1,0 +1,209 @@
+.system_element_4608
+=> nrel_inclusion: [*
+	=> .system_element_353: 
+		.system_element_4308;
+		.system_element_4609;
+		.system_element_4610
+	;;
+
+	.system_element_1035
+	=> nrel_idtf: [<p>совокупность всех навыков, которыми обладает ostis-система на текущий момент времени</p>]
+	(*
+		<- lang_ru;;
+		=> nrel_format: format_html;;
+	*);
+	<= .system_element_179: .system_element_407;
+	=> nrel_note: [<p>Предлагаемый в рамках <i>Технологии OSTIS</i> подход к построению решателей задач позволяет обеспечить их модифицируемость, что, в свою очередь, позволяет <i>ostis-системе</i> при необходимости легко приобретать новые <i>навыки</i>, модифицировать (совершенствовать) уже имеющиеся и даже избавляться от некоторых навыков с целью повышения производительности системы. Таким образом, имеет смысл говорить не о жестко фиксированном решателе задач, который разрабатывается один раз при создании первой версии системы и далее не меняется, а о совокупности навыков, фиксированной в каждый текущий момент времени, но постоянно эволюционирующей.</p>]
+	(*
+		<- lang_ru;;
+		=> nrel_format: format_html;;
+	*);
+	=> nrel_inclusion: .system_element_4611
+	(*
+		=> nrel_idtf: [<p>полный решатель задач ostis-системы</p>];;
+		=> nrel_idtf: [<p>интегрированный решатель задач ostis-системы</p>]
+		(*
+			<- lang_ru;;
+			=> nrel_format: format_html;;
+		*);;
+		=> nrel_idtf: [<p>решатель задач ostis-системы, реализующий все ее функциональные возможности, как основные, так и вспомогательные</p>]
+		(*
+			<- lang_ru;;
+			=> nrel_format: format_html;;
+		*);;
+		=> nrel_explanation: [<p>В общем случае <i>объединенный решатель задач ostis-системы</i> решает задачи, связанные с:
+		<ul>
+			<li> обеспечением основных функциональных возможностей системы (например, решение явно сформулированных задач по требованию пользователя);
+			<li> обеспечением корректности и оптимизацией работы самой ostis-системы (перманентно на протяжении всего жизненного цикла ostis-системы);
+			<li> обеспечением повышения квалификации конечных пользователей и разработчиков ostis-системы;
+			<li> обеспечением автоматизации развития и управления развитием ostis-системы.</li>
+		<ul></p>]
+		(*
+			<- lang_ru;;
+			=> nrel_format: format_html;;
+		*);;
+	*);
+	=> nrel_inclusion: .system_element_4612
+	(*
+		=> nrel_idtf: [<p>решатель задач ostis-системы, реализующий две и более модели решения задач</p>]
+		(*
+			<- lang_ru;;
+			=> nrel_format: format_html;;
+		*);;
+	*);;
+
+	.system_element_4613
+	<= nrel_inclusion: .system_element_2968;
+	=> nrel_explanation: [<p>Под <i>машиной обработки знаний</i> будем понимать совокупность интерпретаторов всех <i>навыков</i>, составляющих некоторый <i>решатель задач</i>. С учетом многоагентного подхода к обработке информации, используемого в рамках Технологии OSTIS, <i>машина обработки знаний</i> представляет собой <i>sc-агент</i> (чаще всего --- <i>неатомарный sc-агент</i>), в состав которого входят более простые sc-агенты, обеспечивающие интерпретацию соответствующего множества <i>методов</i>. Таким образом, <i>машина обработки знаний</i> в общем случае представляет собой иерархическую систему <i>sc-агентов</i>.</p>]
+	(*
+		<- lang_ru;;
+		=> nrel_format: format_html;;
+	*);;
+
+	.system_element_1035
+	-> .system_element_1817;
+	=> nrel_inclusion: .system_element_4614
+	(*
+		=> nrel_inclusion: .system_element_4615
+		(*
+			=> nrel_subdividing: {
+				.system_element_4616;
+				.system_element_4617;
+				.system_element_4618
+			};;
+		*);;
+		=> nrel_inclusion: .system_element_4619
+		(*
+			=> nrel_inclusion: .system_element_4620
+			(*
+				=> nrel_inclusion: .system_element_4621
+				(*
+					=> nrel_inclusion: .system_element_4622
+					(*
+						=> nrel_inclusion: .system_element_4623;;
+						=> nrel_inclusion: .system_element_4624;;
+					*);;
+					=> nrel_inclusion: .system_element_4625;;
+					=> nrel_inclusion: .system_element_4626;;
+				*);;
+			*);;
+			=> nrel_inclusion: .system_element_4627
+			(*
+				=> nrel_subdividing: {
+					.system_element_4628;
+					.system_element_4629
+				};;
+			*);;
+		*);;
+		=> nrel_inclusion: .system_element_4630;;
+	*);
+	=> nrel_inclusion: .system_element_4631;;
+
+	.system_element_1035
+	=> nrel_inclusion: .system_element_4632
+	(*
+		=> nrel_idtf: [<p>решатель, способный решать задачи тех классов, для которых на данный момент времени известен соответствующий метод решения</p>];;
+		=> nrel_inclusion: .system_element_4633;;
+		=> nrel_inclusion: .system_element_4634;;
+		=> nrel_inclusion: .system_element_4635
+		(*
+			=> nrel_inclusion: .system_element_4636;;
+			=> nrel_inclusion: .system_element_4637;;
+		*);;
+		=> nrel_inclusion: .system_element_4638
+		(*
+			=> nrel_inclusion: .system_element_4639;;
+			=> nrel_inclusion: .system_element_4640;;
+		*);;
+	*);
+	=> nrel_inclusion: .system_element_4641
+	(*
+		=> nrel_idtf: [<p>решатель, реализующий стратегии решения задач, позволяющие породить метод решения задачи, который в текущий момент времени не известен ostis-системе</p>];;
+		=> nrel_idtf: [<p>решатель, использующий для решения задач метаметоды, соответствующие более общим классам задач по отношению к заданной</p>]
+		(*
+			<- lang_ru;;
+			=> nrel_format: format_html;;
+		*);;
+		=> nrel_idtf: [<p>решатель задач, позволяющий породить метод, который является частным по отношению к какому-либо известному ostis-системе методу и интерпретируется соответствующей машиной обработки знаний</p>]
+		(*
+			<- lang_ru;;
+			=> nrel_format: format_html;;
+		*);;
+		=> nrel_inclusion: .system_element_4642;;
+		=> nrel_inclusion: .system_element_4643;;
+		=> nrel_inclusion: .system_element_4644;;
+		=> nrel_inclusion: .system_element_4645;;
+		=> nrel_inclusion: .system_element_4646;;
+		=> nrel_inclusion: .system_element_4647;;
+	*);;
+
+	.system_element_4613
+	=> nrel_inclusion: .system_element_4648
+	(*
+		=> nrel_inclusion: .system_element_4649
+		(*
+			=> nrel_inclusion: .system_element_4650;;
+			=> nrel_inclusion: .system_element_4651;;
+		*);;
+		=> nrel_inclusion: .system_element_4652;;
+		=> nrel_inclusion: .system_element_4653;;
+		=> nrel_inclusion: .system_element_4654;;
+		=> nrel_inclusion: .system_element_4655;;
+		=> nrel_inclusion: .system_element_4656;;
+	*);;
+
+	.system_element_1035
+	=> nrel_inclusion: .system_element_4657
+	(*
+		=> nrel_subdividing: {
+			.system_element_4658;
+			.system_element_4659
+		};;
+	*);
+	=> nrel_inclusion: .system_element_4660
+	(*
+		=> nrel_idtf: [<p>решатель задач, для которых явно сформулирована цель</p>];;
+		=> nrel_inclusion: .system_element_4661;;
+		=> nrel_inclusion: .system_element_4662;;
+		=> nrel_inclusion: .system_element_4663;;
+		=> nrel_inclusion: .system_element_4664;;
+		=> nrel_inclusion: .system_element_4665
+		(*
+			=> nrel_inclusion: .system_element_4666;;
+		*);;
+	*);
+	=> nrel_inclusion: .system_element_4667
+	(*
+		=> nrel_inclusion: .system_element_4668;;
+		=> nrel_inclusion: .system_element_4669;;
+	*);
+	=> nrel_inclusion: .system_element_4670
+	(*
+		=> nrel_inclusion: .system_element_4671;;
+		=> nrel_inclusion: .system_element_4672;;
+		=> nrel_inclusion: .system_element_4673
+		(*
+			=> nrel_inclusion: .system_element_4674;;
+		*);;
+	*);
+	=> nrel_inclusion: .system_element_4675
+	(*
+		=> nrel_inclusion: .system_element_4676
+		(*
+			=> nrel_inclusion: .system_element_4677;;
+			=> nrel_inclusion: .system_element_4678;;
+		*);;
+		=> nrel_inclusion: .system_element_4679
+		(*
+			=> nrel_inclusion: .system_element_4680;;
+			=> nrel_inclusion: .system_element_4681;;
+		*);;
+		=> nrel_inclusion: .system_element_4682
+		(*
+			=> nrel_inclusion: .system_element_4683
+			(*
+				=> nrel_inclusion: .system_element_4684;;
+			*);;
+		*);;
+	*);;
+*];;
