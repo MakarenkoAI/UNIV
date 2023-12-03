@@ -1,8 +1,10 @@
+import parse
+import math
 
 def get_aEQb(a_ij, b_i): #equal
     if (a_ij < b_i): return None
     if (a_ij == b_i): return [b_i, 1]
-    if (a_ij > b_i): return b_i
+    if (a_ij > b_i): return [b_i,b_i]
 
 def get_aLTb(a_ij, b_i): #less then
     if (a_ij <= b_i): return [0, 1]
@@ -14,11 +16,11 @@ def choose_one(List, b, results):
         print(f'{main_i+1}.')
         for el_i, el in enumerate(List):
             if (main_i != el_i):
-                lists.append(get_aLTb(el[0],b[0]))
-                print(f'min({el[0]},{el[1]}) <= {b[0]}, {el[1]} in {get_aLTb(el[0],b[0])}')
+                lists.append(get_aLTb(el[1],b[1]))
+                print(f'min({el[1]},{el[0]}) <= {b[1]}, {el[0]} in {get_aLTb(el[1],b[1])}')
             else:
-                lists.append(get_aEQb(el[0],b[0]))
-                print(f'min({el[0]},{el[1]}) = {b[0]}, {el[1]} in {get_aEQb(el[0],b[0])}')
+                lists.append(get_aEQb(el[1],b[1]))
+                print(f'min({el[1]},{el[0]}) = {b[1]}, {el[0]} in {get_aEQb(el[1],b[1])}')
         results.append(lists)
     return results
         
@@ -91,7 +93,6 @@ def return_max(list1, list2):
     if timesG == len(list1):
         return list1
         
-
 def cutter(results):
     for i in range(len(results)):
         for j in range(len(results)):
@@ -102,20 +103,37 @@ def cutter(results):
     return results
         
 def print_answer(line):
-    rezult = '\nAnswer: \t('
-    for answ_i, answer in enumerate(line):
-        for i in range(len(answer)):
-            if i != len(answer)-1:
-                rezult += str(answer[i]) + ' x '
-            else:
-                rezult += str(answer[i])
-        if answ_i != len(line)-1:
-            rezult += ') U ('  
-        else: rezult +=')'
-    print(rezult)
+    if line != []:
+        rezult = '\nAnswer: \t('
+        for answ_i, answer in enumerate(line):
+            for i in range(len(answer)):
+                if i != len(answer)-1:
+                    rezult += str(answer[i]) + ' x '
+                else:
+                    rezult += str(answer[i])
+            if answ_i != len(line)-1:
+                rezult += ') U ('  
+            else: rezult +=')'
+        print(rezult)
+        return
+    print('\nAnswer: \t{}')
+
+def print_b(Bij):
+    line = ''
+    for el in Bij:
+        line += f' <{el[0]},{el[1]}>'
+    return line
+
+def print_a(Aij):
+    line=''
+    for el in Aij:
+        line += print_b(el)
+    return line
 
 def get_log(Aij, Bi):
     print('\n\nStarting...')
+    print('Rule:\t',print_a(Aij))
+    print('Inference:\t',print_b(Bi))
     results = []
     for list_i, List in enumerate(Aij):
         results = choose_one(List, Bi[list_i], results)
@@ -126,10 +144,16 @@ def get_log(Aij, Bi):
     c = list(filter(lambda a: a != None, c))
     print_answer(c)
    
-Aij = [ [[0.7,'x1'], [0.7,'x2']], [[0.1,'x3'], [0.3,'x2']], [[0.2,'x1'], [0.1,'x3']] ]
-Bi = [ [0.7,'b1'], [0.3,'b2'],[0.2,'b3'] ]
-get_log(Aij, Bi)
-
-A1ij = [ [[0.7,'x1'], [0.7,'x2'],[1,'x3']], [[0.4,'x1'], [0.4,'x2'],[0.4,'x3']], [[1,'x1'], [1,'x2'],[1,'x3']] ]
-B1i = [ [1,'b1'], [0.4,'b2'], [1,'b3'] ]
-get_log(A1ij, B1i)
+def column(line):
+    new = []
+    diff = len(line) // len(set(name[0] for name in line))
+    i = 0
+    while i < diff:
+        li = []
+        k = 0
+        while i+diff*k < len(line):
+            li.append(line[i+diff*k])
+            k+=1
+        new.append(li)
+        i += 1
+    return new
